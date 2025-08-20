@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Cars from './pages/Cars'
+import CarDetails from './pages/CarDetails'
+import MyBookings from './pages/MyBookings'
 
 // Component that uses useLocation hook (must be inside Router)
 const AppContent = () => {
@@ -13,10 +17,10 @@ const AppContent = () => {
       {!isOwnerPath && <Navbar setShowLogin={setShowLogin}/>}
       
       <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} />
-        <Route path="/about" element={<h1>About Page</h1>} />
-        <Route path="/services" element={<h1>Services Page</h1>} />
-        <Route path="/contact" element={<h1>Contact Page</h1>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/car-details/:id" element={<CarDetails/>} />
+        <Route path="/cars" element={<Cars/>} />
+        <Route path="/my-bookings" element={<MyBookings/>} />
         <Route path="/owner" element={<h1>Owner Dashboard</h1>} />
       </Routes>
     </>
